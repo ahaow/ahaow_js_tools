@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>星级评分---2</title>
+    <style>
+        body,ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+
+        .rating {
+            width: 165px;
+            height: 33px;
+            margin: 100px auto;
+        }
+
+        .rating-item {
+            float: left;
+            width: 33px;
+            height: 33px;
+            background: url('./star.png') no-repeat;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 第一种实现方式 -->
+    <ul class="rating" id="rating">
+        <li class="rating-item" title="很不好"></li>
+        <li class="rating-item" title="不好"></li>
+        <li class="rating-item" title="一般"></li>
+        <li class="rating-item" title="好"></li>
+        <li class="rating-item" title="很好"></li>
+    </ul>
+
+    <script>
+        window.onload = function() {
+            (function(){
+                var num = 0; //  存储点亮星星的个数
+                var rating = document.getElementById("rating");
+                var rating_lis = rating.children;
+                console.log(rating_lis);    
+                var rating_lis_len = rating_lis.length;
+
+                //  点亮
+                var lightOn = function (num) {
+                    for(var i=0;i<rating_lis_len;i++) {
+                        rating_lis[i].index = i;
+                        if(rating_lis[i].index < num) {
+                            rating_lis[i].style.backgroundPosition = "0 -40px";
+                        }else {
+                            rating_lis[i].style.backgroundPosition = "0 0";
+                        }
+                    }
+                }
+
+                var init = function(el,num) {};
+
+                
+                lightOn(num);
+
+                rating.onmouseover = function(event) {
+                    var event = event || window.event;
+                    var target = event.target || event.srcElement;
+                    if(target.className === "rating-item") {
+                        lightOn(target.index + 1);
+                    }
+                }
+                rating.onclick = function(event) {
+                    var event = event || window.event;
+                    var target = event.target || event.srcElement;
+                    if(target.className === "rating-item") {
+                        num = target.index + 1;
+                    }
+                }
+
+                rating.onmouseout = function() {
+                    lightOn(num);
+                }        
+            })()
+        }
+    
+    </script>
+
+
+</body>
+</html>

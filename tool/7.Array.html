@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = [2,5,1,6,7]
+        /*判断一个元素是否在数组中*/
+        function contains(arr,val){
+            return arr.indexOf(val) != -1 ? true : false
+        }
+        // console.log(contains(arr1,2)) // true;
+        
+        /*删除其中一个元素*/
+        function arrremove(arr,ele){
+            var index = arr.indexOf(ele);
+            console.log(index);
+            if(index > -1){
+                arr.splice(index,1);
+            }
+            return arr;
+        }
+        console.log(arrremove(arr1,5))
+        /*将类数组转换为数组的方法*/
+        var a = {'1':'gg','2':'love','4':'meimei',length:5};
+        console.log(a)
+        function formArray(ary){
+            var arr = [];
+            if(Array.isArray(ary)){
+                arr = ary
+            }else {
+                arr = Array.prototype.slice.call(ary);
+            }
+            return arr;
+        }
+        console.log(formArray(a))
+        /*最大值*/
+        function max(arr){
+            return Math.max.apply(null,arr);
+        }
+        console.log(max(arr1))
+        /*最小值*/
+        function min(arr){
+            return Math.min.apply(null,arr)
+        }
+        console.log(min(arr1))
+    
+        // 求和
+        var arr2 = [1,2,3,4]
+        function sum(arr){
+            return arr.reduce((pre,cur) => {
+                return pre + cur;
+            })
+        }
+        console.log(sum(arr2))
+        /*平均值*/
+        function average(arr){
+            return sum(arr) / arr.length
+        }
+        console.log(average(arr2))
+        function sum1(arr){
+            var num = 0;        
+            for(var i=0;i<arr.length;i++){
+                num+= arr[i];
+            }
+            return num;
+        }
+        console.log(sum1(arr2))
+    </script>
+</body>
+</html>

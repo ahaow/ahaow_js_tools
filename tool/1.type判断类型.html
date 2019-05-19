@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '123';
+        var arr = [];
+        var obj = {
+            name:'hao',
+            age: 18
+        };
+        var num = 5;
+        var bool = false;
+        var fun = function(){
+     
+        }
+        var date = new Date();
+        console.log(date.toLocaleTimeString)
+        console.log(typeof arr) // object
+        console.log(Object.prototype.toString.call(arr)); // [object Array]
+        console.log(Object.prototype.toString.call(arr).slice(8,-1)); // Array
+        function isString(o){
+            return Object.prototype.toString.call(o).slice(8,-1) === "String"; 
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Number'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Object'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Array'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Date' //是否时间
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Boolean'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Function'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
+            // return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
+        }
+        console.log(isString(str))
+        
+        // 判断false or true 
+        // false
+        var f = false; 
+        var t = true;
+        function isFalse(o) {
+            if(!o || o=== 'null' || o === 'undefined' || o === 'false' || o === 'NaN'){
+                return true;
+            }
+            return false;
+        }
+        console.log(isFalse(f)) 
+        // true
+        function isTrue(o){
+            return !isFalse(o);
+        }
+        console.log(t)
+        
+        
+    </script>
+</body>
+</html>

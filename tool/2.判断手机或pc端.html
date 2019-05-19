@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // userAgent 属性是一个只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值。.
+        function isIos() {
+            var u = navigator.userAgent;
+            console.log(u); 
+            if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+                return "Android";
+                // return false
+            } else if (u.indexOf('iPhone') > -1) {//苹果手机
+                return "iPhone";
+                // return true
+            } else if (u.indexOf('iPad') > -1) {//iPad
+                return "iPad";
+                // return false
+            } else if (u.indexOf('Windows Phone') > -1) {//winphone手机
+                return "Windows Phone";
+                // return false
+            }else{
+                return false
+            }
+        }
+        console.log(isIos())
+        // 判断是否是pc
+        function isPc() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                        "SymbianOS", "Windows Phone",
+                        "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        console.log(isPc())
+        var str = 'Ahao'
+        console.log(str.indexOf('h'))
+    
+    </script>
+</body>
+</html>

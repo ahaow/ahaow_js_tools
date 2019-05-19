@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: #fefefe;
+	}
+	.title {
+		width: 100%;
+		height: 0.95rem;
+		line-height: 0.95rem;
+		color: #fff;	
+		background: #e02222;
+		text-align: center;
+		font-size: 0.32rem;
+	}
+	.box {
+		width: 0.5rem;
+		height: .5rem;
+		background-color: pink;
+	}
+</style>
+<body>
+	<script>
+		// window.onload = function(){
+		// 	getRem(720,100);
+		// }
+		// window.onresize = function(){
+		// 	getRem(720,100);
+		// }
+		// function getRem(pwidth,prem){
+		// 	var html = document.getElementsByTagName("html")[0];
+		// 	var owidth = document.body.clientWidth || document.documentElement.clientWdith;
+		// 	console.log(owidth);
+		// 	html.style.fontSize = owidth / pwidth * prem + "px";
+		// }
+		(function (doc, win) {
+	        var docEl = doc.documentElement,
+	            resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+	            recalc = function () {
+	                var clientWidth = docEl.clientWidth;
+	                if (!clientWidth) return;
+	                if(clientWidth>=750){
+	                    docEl.style.fontSize = '100px';
+	                }else{
+	                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	                }
+	            };
+	        if (!doc.addEventListener) return;
+	        win.addEventListener(resizeEvt, recalc, false);
+	        doc.addEventListener('DOMContentLoaded', recalc, false);
+	    })(document, window);
+	    
+	</script>
+	<div class="wrap">
+		<div class="title">首页</div>
+		<div class="box"></div>
+	</div>
+
+</body>
+</html>
