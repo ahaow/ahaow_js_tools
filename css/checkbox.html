@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox常用</title>
+	<style>
+		/* 第一种 */
+		.slideOne {
+			width: 50px;
+			height: 10px;
+			background: #333;
+			margin: 20px auto;
+			position: relative;
+			border-radius: 50px;
+			box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+		}
+		.slideOne input[name='check1'] {
+			visibility: hidden;
+		}
+		.slideOne label {
+			display: block;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			background-color: red;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.2s linear;
+		}
+		.slideOne input[name="check1"]:checked + label {
+			left: 37px;
+		}
+
+
+		/* 第二种 */
+		.slideTwo {
+			width: 80px;
+			height: 30px;
+			background: #333;
+			margin: 20px auto;
+			position: relative;
+			border-radius: 50px;
+		}
+		.slideTwo input[name='check2'] {
+			visibility: hidden;
+		}
+		.slideTwo::before {
+			content: '';
+			position: absolute;
+			top: 14px;
+			left: 14px;
+			height: 2px;
+			width: 52px;
+			background: red;
+			border-radius: 50px;
+		}
+		.slideTwo label {
+			display: block;
+			position: absolute;
+			width: 22px;
+			height: 22px;
+			cursor: pointer;
+			top: 4px;
+			left: 4px;
+			z-index: 1;
+			background-color: #fcfff4;
+			border-radius: 50px;
+			transition: all 0.4s ease;
+		}
+		.slideTwo label::after {
+			content: " ";
+			display: block;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			background: red;
+			border-radius: 50%;		
+			z-index: 2;
+			box-shadow: inset 0px 1px 1px black, 0px 1px 0px rgba(255, 255, 255, 0.9);
+			cursor: pointer;	
+		}
+		.slideTwo input[name="check2"]:checked + label {
+			left: 54px;
+		}
+		.slideTwo input[name="check2"]:checked + label::after {
+			background: #00bf00;
+		}
+		
+		/* 第三种 */
+		.slideThree {
+			position: relative;
+			width: 80px;
+			height: 26px;
+			background: #333;
+			margin: 20px auto;
+			border-radius: 50px;
+		}
+		.slideThree input[name="check3"] {
+			visibility: hidden;
+		}
+		.slideThree::after {
+			content: 'OFF';
+			color: #fff;
+			position: absolute;
+			right: 10px;
+			top: 5px;
+			z-index: 0;
+			font-size: 12px;
+			font-weight: bold;
+			text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+		}
+		.slideThree::before {
+			content: 'ON';
+			color: #00bf00;
+			position: absolute;
+			left: 10px;
+			top: 5px;
+			z-index: 0;
+			font-size: 12px;
+			font-weight: bold;
+			text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+		}
+		.slideThree label {
+			display: block;
+			position: absolute;
+			left: 4px;
+			top: 3px;
+			width: 34px;
+			height: 20px;
+			cursor: pointer;
+			z-index: 1;
+			background: #fcfff4;
+			transition: all 0.3s linear;
+			border-radius: 10px;
+		}
+		.slideThree input[name="check3"]:checked + label {
+			left: 43px;
+		}
+
+		/* 第四种 */
+		.slideFour {
+			position: relative;
+			width: 30px;
+			height: 30px;
+			background-color: #333;
+			margin: 20px auto;
+			border-radius: 50%;
+			border: 5px solid #ccc;
+		}
+		.slideFour input[name="check4"] {
+			visibility: hidden;
+		}
+		.slideFour label {
+			display: block;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 20px;
+			height: 20px;
+			background-color: green;
+			border-radius: 50%;
+			opacity: 0;
+			transition: all 0.2s linear;
+			cursor: pointer;
+		}
+		.slideFour input[name="check4"]:checked + label {
+			opacity: 1;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<!-- 第一种 -->
+	<section title="slideOne">
+		<div class="slideOne">
+			<input type="checkbox" value="None" id="slideOne" name="check1">
+			<label for="slideOne"></label>
+		</div>
+	</section>	
+
+	<!-- 第二种 -->
+	<section title="slideTwo">
+		<div class="slideTwo">
+			<input type="checkbox" value="None" id="slideTwo" name="check2">
+			<label for="slideTwo"></label>
+		</div>
+	</section>
+
+	<!-- 第三种 -->
+	<section title="slideThree">
+		<div class="slideThree">
+			<input type="checkbox" value="None" id="slideThree" name="check3">
+			<label for="slideThree"></label>
+		</div>
+	</section>
+
+	<!-- 第四种 -->
+	<section title="slideFour">
+		<div class="slideFour">
+			<input type="checkbox" value="None" id="slideFour" name="check4">
+			<label for="slideFour"></label>
+		</div>
+	</section>
+
+
+
+</body>
+</html>
